@@ -1,0 +1,953 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepeverse - The Ultimate Meme Multiverse</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap');
+        
+        :root {
+            --goblin-green: #5cdb5c;
+            --goblin-dark: #285428;
+            --goblin-accent: #8eff8e;
+            --goblin-brown: #8B4513;
+            --goblin-yellow: #f5df4d;
+            --goblin-purple: #9900ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: #1a1a1a;
+            color: white;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(92, 219, 92, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(92, 219, 92, 0.1) 0%, transparent 50%);
+        }
+        
+        header {
+            background-color: var(--goblin-dark);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-family: 'Bangers', cursive;
+            color: var(--goblin-accent);
+            font-size: 1.8rem;
+            text-shadow: 2px 2px 0 var(--goblin-dark), 
+                         3px 3px 0 rgba(0,0,0,0.7);
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--goblin-accent);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-transform: uppercase;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(92, 219, 92, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--goblin-dark) 0%, #000 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%235cdb5c' fill-opacity='0.05' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'%3E%3C/path%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+            max-width: 1000px;
+        }
+        
+        .pepe-logo {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--goblin-accent);
+            text-shadow: 3px 3px 0 var(--goblin-dark), 
+                         5px 5px 0 rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            max-width: 800px;
+            font-weight: normal;
+            line-height: 1.4;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--goblin-accent);
+            color: var(--goblin-dark);
+            padding: 0.8rem 2rem;
+            font-family: 'Bangers', cursive;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 0 var(--goblin-dark), 
+                        0 8px 10px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 var(--goblin-dark), 
+                        0 10px 15px rgba(0,0,0,0.3);
+            filter: brightness(110%);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--goblin-dark), 
+                        0 4px 5px rgba(0,0,0,0.3);
+        }
+        
+        .btn-primary::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--goblin-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--goblin-accent);
+            font-size: 1.5rem;
+            text-decoration: none;
+            border: 2px solid var(--goblin-accent);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            background-color: var(--goblin-accent);
+            color: var(--goblin-dark);
+            box-shadow: 0 5px 15px rgba(92, 219, 92, 0.3);
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Bangers', cursive;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--goblin-accent);
+            text-shadow: 2px 2px 0 var(--goblin-dark), 
+                         3px 3px 0 rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background-color: rgba(92, 219, 92, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-container::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(142, 255, 142, 0.03) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .about-image {
+            flex: 0 0 300px;
+            position: relative;
+        }
+        
+        .about-text {
+            flex: 1;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .tokenomics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .tokenomics-card {
+            background: linear-gradient(145deg, rgba(92, 219, 92, 0.1), rgba(40, 84, 40, 0.2));
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            border: 2px solid rgba(92, 219, 92, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tokenomics-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(92, 219, 92, 0.2);
+            border-color: var(--goblin-accent);
+        }
+        
+        .tokenomics-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--goblin-accent), var(--goblin-dark), var(--goblin-accent));
+            background-size: 200% 100%;
+            animation: gradient-animation 5s linear infinite;
+        }
+        
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .tokenomics-card h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--goblin-accent);
+        }
+        
+        .tokenomics-card p, .tokenomics-card .highlight {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            color: var(--goblin-yellow);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .roadmap {
+            background-color: #1a1a1a;
+            position: relative;
+        }
+        
+        .roadmap::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235cdb5c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        .roadmap-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+        
+        .roadmap-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .roadmap-timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--goblin-dark), var(--goblin-accent), var(--goblin-dark));
+            border-radius: 10px;
+        }
+        
+        .roadmap-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin: 2rem 0;
+            width: 50%;
+        }
+        
+        .roadmap-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 30px;
+            margin-left: auto;
+        }
+        
+        .roadmap-item::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: -13px;
+            width: 25px;
+            height: 25px;
+            background-color: var(--goblin-accent);
+            border-radius: 50%;
+            border: 4px solid var(--goblin-dark);
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(92, 219, 92, 0.5);
+        }
+        
+        .roadmap-item:nth-child(even)::before {
+            right: auto;
+            left: -13px;
+        }
+        
+        .roadmap-content {
+            background: rgba(40, 84, 40, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transition: all 0.3s;
+            border: 2px solid rgba(92, 219, 92, 0.2);
+            max-width: 400px;
+        }
+        
+        .roadmap-content:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(92, 219, 92, 0.2);
+            border-color: var(--goblin-accent);
+        }
+        
+        .roadmap-content h3 {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--goblin-accent);
+            letter-spacing: 1px;
+        }
+        
+        .roadmap-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .roadmap-content ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 25px;
+            font-size: 1rem;
+        }
+        
+        .roadmap-content ul li::before {
+            content: "🐸";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .how-to-buy {
+            background-color: rgba(40, 84, 40, 0.1);
+            padding: 5rem 2rem;
+            position: relative;
+        }
+        
+        .buy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(25, 25, 25, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            border: 2px solid var(--goblin-accent);
+            overflow: hidden;
+        }
+        
+        .buy-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%235cdb5c' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .buy-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .buy-step {
+            flex: 1 1 250px;
+            max-width: 300px;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            position: relative;
+            border: 2px solid rgba(92, 219, 92, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .buy-step:hover {
+            transform: translateY(-10px);
+            border-color: var(--goblin-accent);
+            box-shadow: 0 15px 30px rgba(92, 219, 92, 0.2);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: var(--goblin-accent);
+            color: var(--goblin-dark);
+            font-weight: bold;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--goblin-dark);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            font-family: 'Bangers', cursive;
+        }
+        
+        .buy-step h3 {
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Bangers', cursive;
+            color: var(--goblin-accent);
+            font-size: 1.5rem;
+        }
+        
+        .buy-step p {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+        
+        footer {
+            background-color: var(--goblin-dark);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--goblin-accent), transparent, var(--goblin-accent));
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .footer-logo-image {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .footer-logo-text {
+            font-family: 'Bangers', cursive;
+            font-size: 2rem;
+            color: var(--goblin-accent);
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .footer-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--goblin-accent);
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--goblin-accent);
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            width: 100%;
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem 0.5rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-image {
+                flex: 0 0 200px;
+            }
+            
+            .roadmap-timeline::before {
+                left: 20px;
+            }
+            
+            .roadmap-item, .roadmap-item:nth-child(even) {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+            
+            .roadmap-item::before, .roadmap-item:nth-child(even)::before {
+                left: 7px;
+                right: auto;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <svg class="logo-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="#285428" />
+                <circle cx="50" cy="50" r="35" fill="#5cdb5c" />
+                <circle cx="25" cy="40" r="10" fill="#fff" />
+                <circle cx="75" cy="40" r="10" fill="#fff" />
+                <circle cx="25" cy="40" r="5" fill="#000" />
+                <circle cx="75" cy="40" r="5" fill="#000" />
+                <path d="M30 65 Q50 80 70 65" stroke="#285428" stroke-width="5" fill="none" />
+            </svg>
+            <span class="logo-text">PEPEV</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#tokenomics">Tokenomics</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#how-to-buy">Buy $PEPEV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <svg class="pepe-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="95" fill="#285428" />
+                <circle cx="100" cy="100" r="85" fill="#5cdb5c" />
+                <circle cx="60" cy="70" r="20" fill="#fff" />
+                <circle cx="140" cy="70" r="20" fill="#fff" />
+                <circle cx="60" cy="70" r="10" fill="#000" />
+                <circle cx="140" cy="70" r="10" fill="#000" />
+                <path d="M70 130 Q100 155 130 130" stroke="#285428" stroke-width="8" fill="none" />
+                <path d="M30 90 Q40 80 50 90" stroke="#285428" stroke-width="4" fill="none" />
+                <path d="M150 90 Q160 80 170 90" stroke="#285428" stroke-width="4" fill="none" />
+                <path d="M100 100 L95 110 L105 110 Z" fill="#285428" />
+            </svg>
+            <h1>Pepeverse: Unleash Your Inner Goblin</h1>
+            <h2>The ultimate meme-fueled multiverse token where frogs reign supreme. Powered by community vibes and dank memes, $PEPEV is building a playful yet rewarding ecosystem for collectors, creators, and degens alike.</h2>
+            <div class="cta-buttons">
+                <a href="https://gofundmeme.io/campaigns/3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc" class="btn-primary">Buy $PEPEV</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://twitter.com/nueltechie" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
+                    </svg>
+                </a>
+                <a href="https://t.me/pepeverseportal" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About Pepeverse</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(0 5)">
+                        <path d="M90 80 Q100 120 180 90 Q190 140 100 150 Q10 140 20 90 Q100 120 90 80" fill="#5cdb5c" />
+                        <ellipse cx="60" cy="60" rx="25" ry="30" fill="#5cdb5c" />
+                        <ellipse cx="140" cy="60" rx="25" ry="30" fill="#5cdb5c" />
+                        <circle cx="60" cy="55" r="15" fill="#fff" />
+                        <circle cx="140" cy="55" r="15" fill="#fff" />
+                        <circle cx="60" cy="55" r="7" fill="#000" />
+                        <circle cx="140" cy="55" r="7" fill="#000" />
+                        <path d="M75 100 Q100 120 125 100" stroke="#285428" stroke-width="5" fill="none" />
+                        <path d="M50 40 Q30 15 10 25" stroke="#5cdb5c" stroke-width="10" fill="none" />
+                        <path d="M150 40 Q170 15 190 25" stroke="#5cdb5c" stroke-width="10" fill="none" />
+                        <circle cx="100" cy="85" r="8" fill="#8B4513" />
+                        <path d="M60 130 Q100 160 140 130" stroke="#285428" stroke-width="8" fill="none" />
+                        <rect x="85" y="185" width="30" height="15" rx="5" fill="#f5df4d" />
+                        <rect x="75" y="170" width="50" height="20" rx="5" fill="#9900ff" />
+                        <text x="100" y="185" text-anchor="middle" font-family="Arial" font-size="12" fill="white">GOBLIN</text>
+                    </g>
+                </svg>
+            </div>
+            <div class="about-text">
+                <p>Welcome to the Pepeverse – where memes meet the metaverse in a goblin-infused explosion of green glory! We're not just another meme coin; we're the multiversal hub where frogs rule and vibes are always immaculate.</p>
+                <br>
+                <p>Born from the primordial meme soup and forged in the fires of degen culture, $PEPEV unites collectors, creators, and absolute chads in a community-driven ecosystem that rewards both humor and hodling.</p>
+                <br>
+                <p>Whether you're a seasoned crypto veteran or a curious normie, our mission is simple: build the most rewarding, entertaining, and goblin-pilled frog economy the blockchain has ever seen!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics" class="section">
+        <h2 class="section-title">Tokenomics</h2>
+        <div class="tokenomics-container">
+            <div class="tokenomics-card">
+                <h3>Total Supply</h3>
+                <p class="highlight">1,000,000,000 $PEPEV</p>
+                <p>The perfect balance of scarcity and availability for all frogs to join the multiverse.</p>
+            </div>
+            <div class="tokenomics-card">
+                <h3>Token Address</h3>
+                <p class="highlight">Solana Blockchain</p>
+                <p class="tokenomics-address">3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc</p>
+            </div>
+            <div class="tokenomics-card">
+                <h3>Distribution</h3>
+                <p>40% - Community Rewards</p>
+                <p>25% - Liquidity Pool</p>
+                <p>15% - Development Fund</p>
+                <p>10% - Marketing</p>
+                <p>10% - Team (Locked)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="roadmap">
+        <div class="section">
+            <h2 class="section-title">Roadmap</h2>
+            <div class="roadmap-container">
+                <div class="roadmap-timeline">
+                    <div class="roadmap-item">
+                        <div class="roadmap-content">
+                            <h3>Phase 1: Genesis Frog</h3>
+                            <ul>
+                                <li>Launch token on Solana with fair community distribution</li>
+                                <li>Pepe meme contest (winner gets NFT + $PEPEV)</li>
+                                <li>Airdrop to OG frog holders</li>
+                                <li>Meme generator tool released</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-content">
+                            <h3>Phase 2: Frognomics</h3>
+                            <ul>
+                                <li>PepeSwap integration</li>
+                                <li>Stake-to-earn with meme missions</li>
+                                <li>Pepeverse Explorer Dapp</li>
+                                <li>DAO setup for community-driven governance</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-content">
+                            <h3>Phase 3: Interdimensional Leap</h3>
+                            <ul>
+                                <li>Pepe-themed NFT mint & marketplace</li>
+                                <li>Pepeverse mobile mini game</li>
+                                <li>Frogmerch drops (hoodies, hats, stickers)</li>
+                                <li>Listings on major DEXs & CoinMarketCap</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="roadmap-content">
+                            <h3>Phase 4: Frogtopia</h3>
+                            <ul>
+                                <li>Launch Pepeverse Metaverse space</li>
+                                <li>Meme museum powered by community submissions</li>
+                                <li>Seasonal Pepequests with SOL + NFT rewards</li>
+                                <li>Real-world meme festival with NFT ticketing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-to-buy" class="how-to-buy">
+        <div class="section">
+            <h2 class="section-title">How to Buy $PEPEV</h2>
+            <div class="buy-container">
+                <div class="buy-steps">
+                    <div class="buy-step">
+                        <div class="step-number">1</div>
+                        <h3>Get a SOL Wallet</h3>
+                        <p>Download and set up a Solana-compatible wallet like Phantom or Solflare to store your $PEPEV tokens.</p>
+                    </div>
+                    <div class="buy-step">
+                        <div class="step-number">2</div>
+                        <h3>Visit our DEX</h3>
+                        <p>Head to GoFundMeme, our official partner DEX, to purchase your $PEPEV tokens securely.</p>
+                    </div>
+                    <div class="buy-step">
+                        <div class="step-number">3</div>
+                        <h3>Swap SOL for $PEPEV</h3>
+                        <p>Connect your wallet, enter your desired amount, and complete the swap to join the Pepeverse!</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://gofundmeme.io/campaigns/3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc" class="btn-primary">Buy $PEPEV Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg class="footer-logo-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="#285428" />
+                    <circle cx="50" cy="50" r="35" fill="#5cdb5c" />
+                    <circle cx="30" cy="40" r="10" fill="#fff" />
+                    <circle cx="70" cy="40" r="10" fill="#fff" />
+                    <circle cx="30" cy="40" r="5" fill="#000" />
+                    <circle cx="70" cy="40" r="5" fill="#000" />
+                    <path d="M30 65 Q50 80 70 65" stroke="#285428" stroke-width="5" fill="none" />
+                </svg>
+                <span class="footer-logo-text">PEPEV</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#how-to-buy">Buy $PEPEV</a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Pepeverse. All rights reserved. This is a community-driven meme token. DYOR.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```
